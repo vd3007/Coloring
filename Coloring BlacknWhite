@@ -1,0 +1,39 @@
+!git clone https://github.com/jantic/DeOldify.git DeOldify 
+
+cd DeOldify
+
+#NOTE:  This must be the first call in order to work properly!
+from deoldify import device
+from deoldify.device_id import DeviceId
+#choices:  CPU, GPU0...GPU7
+device.set(device=DeviceId.GPU0)
+
+import torch
+
+if not torch.cuda.is_available():
+    print('GPU not available.')
+    
+!pip install -r requirements-colab.txt
+
+import fastai
+from deoldify.visualize import *
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, message=".*?Your .*? set is empty.*?")
+
+!mkdir 'models'
+!wget https://data.deepai.org/deoldify/ColorizeArtistic_gen.pth -O ./models/ColorizeArtistic_gen.pth
+
+colorizer = get_image_colorizer(artistic=True)
+
+source_url = 'https://preview.redd.it/k8gknhogv8aa1.jpg?width=960&crop=smart&auto=webp&s=4c3a26b3decdd98602783a363f7d21a9cd6792c4' #@param {type:"string"}
+render_factor = 35  #@param {type: "slider", min: 7, max: 40}
+watermarked = True #@param {type:"boolean"}
+#https://www.reddit.com/r/TheWayWeWere/
+if source_url is not None and source_url !='':
+    image_path = colorizer.plot_transformed_image_from_url(url=source_url, render_factor=render_factor, compare=True, watermarked=watermarked)
+    show_image_in_notebook(image_path)
+else:
+    print('Provide an image url and try again.')
+
+for i in range(10,40,2):
+    colorizer.plot_transformed_image('test_images/image.png', render_factor=i, display_render_factor=True, figsize=(8,8))
