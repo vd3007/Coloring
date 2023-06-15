@@ -4,7 +4,7 @@
 #### Sites: [style00dollar/Colab-DeOldify](https://github.com/styler00dollar/Colab-DeOldify)
 #### Sites: [Dakini/AnimeColorDeOldify](https://github.com/Dakini/AnimeColorDeOldify)
 ## Example Photos
-**More Photos:** [Reddit/TheWayWeWere](https://www.reddit.com/r/TheWayWeWere/)
+**More Photos:** [Reddit/TheWayWeWere](https://www.reddit.com/r/TheWayWeWere/) <br>
 [Photo url](https://imgur.com/gallery/4B45KsW) <br>
 ![EatingRice](https://raw.githubusercontent.com/vd3007/Coloring/main/ExamplePhotos/rice.png "Eating rice China")
 [Photo url](https://imgur.com/gallery/piKmQwn) <br>
